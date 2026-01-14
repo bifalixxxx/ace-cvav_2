@@ -485,67 +485,63 @@
 
 <script>
 /* =========================
-   ADMIN TOTAL – IONOS SAFE
+   ADMIN TOTAL – VERCEL SAFE
    ========================= */
-
-/* 🔴 METS TON IP PUBLIQUE ICI */
-const ADMIN_IP = "87.254.228.168";
-
-/* Tout ce qui est éditable (texte uniquement) */
 
 const EDIT_SELECTOR = [
   "h1,h2,h3,h4,h5,h6",
   "p,li,span,small,strong,em,b,i,u",
   "a:not([href^='#'])",
-  "button,.btn,.tag,.pill,.badge",
-  "div"
+  "button,.btn,.tag,.pill,.badge"
 ].join(",");
 
 const STORAGE_KEY = "ACE_ADMIN_CONTENT_V1";
 let editing = false;
+let IS_ADMIN = false;
 
-/* Détection IP réelle */
-fetch("https://api.ipify.org?format=json")
-  .then(r => r.json())
-  .then(({ ip }) => {
-    if (ip !== ADMIN_IP) return; // public : rien
-
-    // === ADMIN ACTIF ===
-    restore();
-
-    document.addEventListener("keydown", (e) => {
-      // CTRL + ALT + E : activer/désactiver édition
-      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "e") {
-        e.preventDefault();
-        editing = !editing;
-        document.documentElement.classList.toggle("mbr-editing", editing);
-        document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
-          if (el.closest("script,style")) return;
-          el.contentEditable = editing ? "true" : "false";
-          el.spellcheck = false;
-        });
-      }
-
-      // CTRL + ALT + S : sauvegarder
-      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "s") {
-        e.preventDefault();
-        save();
-        alert("Admin : contenu sauvegardé");
-      }
-
-      // CTRL + ALT + R : reset local
-      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "r") {
-        e.preventDefault();
-        if (confirm("Admin : annuler toutes les modifications locales ?")) {
-          localStorage.removeItem(STORAGE_KEY);
-          location.reload();
-        }
-      }
-    });
+/* Vérification ADMIN via middleware Vercel */
+fetch("/", { method: "HEAD" })
+  .then(res => {
+    if (res.headers.get("x-admin") === "true") {
+      IS_ADMIN = true;
+      restore();
+      console.log("ADMIN OK");
+    }
   })
-  .catch(() => {
-    /* en cas d’échec IP, admin désactivé */
-  });
+  .catch(() => {});
+
+/* Raccourcis clavier ADMIN */
+document.addEventListener("keydown", (e) => {
+  if (!IS_ADMIN) return;
+
+  // CTRL + ALT + E → édition
+  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "e") {
+    e.preventDefault();
+    editing = !editing;
+    document.documentElement.classList.toggle("mbr-editing", editing);
+    document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
+      if (el.closest("script,style")) return;
+      el.contentEditable = editing ? "true" : "false";
+      el.spellcheck = false;
+    });
+  }
+
+  // CTRL + ALT + S → sauvegarde
+  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "s") {
+    e.preventDefault();
+    save();
+    alert("Contenu sauvegardé");
+  }
+
+  // CTRL + ALT + R → reset
+  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "r") {
+    e.preventDefault();
+    if (confirm("Annuler toutes les modifications locales ?")) {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+  }
+});
 
 /* Sauvegarde locale */
 function save(){
