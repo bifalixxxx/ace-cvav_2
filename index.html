@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Colo – Été & Hiver | A.C.E</title>
+<meta name="description" content="Séjours d'été et d'hiver de l'Action Catholique des Enfants (A.C.E) : informations, inscriptions, activités et vidéos." />
+
+<style>
+  :root{
+    --bg:#0B0D12;
+    --panel:#121621;
+    --muted:#1B2130;
+    --text:#E9EEF7;
+    --dim:#A9B3C7;
+    --brand:#4F8DF7;
+    --brand-2:#6EE7B7;
+    --accent:#FFB86B;
+    --danger:#FF6B6B;
+    --ok:#22C55E;
+    --warn:#F59E0B;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    background:linear-gradient(180deg,var(--bg),#0E111A);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial;
+    line-height:1.5
+  }
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{width:min(1100px,92vw);margin-inline:auto}
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,18,.7);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #141925
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:44px;width:auto;border-radius:10px;box-shadow:var(--shadow)}
+  .brand h1{font-size:18px;margin:0}
+  .nav a.btn{
+    background:var(--brand);
+    color:#081018;
+    padding:10px 16px;
+    border-radius:12px;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(79,141,247,.35)
+  }
+  .menu{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:transparent;border:0;cursor:pointer}
+  .hamburger span{display:block;width:26px;height:2px;background:#c9d2e6}
+  @media (max-width:860px){
+    .menu{display:none}
+    .menu.open{display:flex;flex-direction:column;align-items:flex-start;padding:12px 0}
+    .hamburger{display:flex}
+  }
+
+  .hero{padding:48px 0 24px}
+  .hero-wrap{display:grid;grid-template-columns:1.3fr .9fr;gap:24px}
+  @media (max-width:960px){.hero-wrap{grid-template-columns:1fr}}
+  .card{
+    background:linear-gradient(180deg,var(--panel),#0E1320);
+    border:1px solid #1C2231;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow)
+  }
+  .card-inner{padding:22px}
+  .eyebrow{
+    display:inline-flex;gap:8px;align-items:center;
+    background:rgba(79,141,247,.12);
+    border:1px solid rgba(79,141,247,.25);
+    color:#CFE0FF;
+    padding:6px 10px;border-radius:999px;
+    font-size:12px;font-weight:600
+  }
+  .title-xl{font-size:clamp(26px,3.2vw,40px);line-height:1.15;margin:12px 0 10px}
+  .lead{color:var(--dim);font-size:18px;margin:0 0 18px}
+  .video{aspect-ratio:16/9;width:100%;border:0;border-radius:14px}
+  section{padding:28px 0}
+  h2{font-size:clamp(22px,2.6vw,30px);margin:0 0 14px}
+  .grid{display:grid;gap:18px}
+  .grid.cols-2{grid-template-columns:1fr 1fr}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:900px){
+    .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+  }
+  .list{display:grid;gap:10px;margin:0;padding:0}
+  .list li{
+    list-style:none;
+    display:flex;align-items:center;gap:10px;
+    background:#111829;border:1px solid #1E2740;
+    padding:10px 12px;border-radius:12px
+  }
+  .footer{
+    margin-top:30px;
+    padding:26px 0;
+    border-top:1px solid #151C2B;
+    color:#A6B2C8;
+    font-size:14px
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img alt="Logo A.C.E" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100064794696751&f=1&nofb=1" />
+      <h1>A.C.E – Coeurs Vaillants Âmes Vaillantes</h1>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#accueil">Accueil</a>
+      <a href="#activites">Nos Activités</a>
+      <a href="#sejours">Nos Séjours</a>
+      <a href="#actions">Nos Actions</a>
+      <a href="#membres">Devenir Membres</a>
+      <a href="#videos">Vidéos</a>
+      <a class="btn" href="#contact">Nous Contacter</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="menu" id="hamb">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="top-banner" style="background:#2F4BE0;color:#fff;padding:12px 16px;text-align:center;font-weight:700;">
+  📣 Arrive prochainement — inscription au séjour de neige ouverte !!!
+</div>
+
+<!-- Hero -->
+<section class="hero container" id="accueil">
+  <div class="hero-wrap">
+    <div class="card">
+      <div class="card-inner">
+        <span class="eyebrow">Ouverture des inscriptions – Été 2026</span>
+        <h2 class="title-xl">
+          Des séjours qui font grandir —
+          <span style="color:var(--brand-2)">hiver</span> &
+          <span style="color:var(--accent)">été</span>
+        </h2>
+        <p class="lead">
+          Action Catholique des Enfants – des activités, des amis,
+          des veillées, et des souvenirs pour la vie.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#sejour-neige">Voir le séjour Neige</a>
+          <a class="btn secondary" href="#sejours">Voir les séjours Été</a>
+          <a class="btn ghost" href="#docs">Télécharger les fiches</a>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <span class="tag">Chèques vacances C.C.S.S acceptés</span>
+          <span class="tag">Paiement possible en plusieurs mensualités</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="banner">
+          <strong>Info fiche sanitaire :</strong>
+          validité limitée — merci de nous la transmettre
+          <u>uniquement en juin</u>.
+        </div>
+
+        <div class="banner" style="border-color:#2d3b20;background:linear-gradient(180deg,#162111,#0f170c);color:#cfe9c9">
+          <strong>Disponibilités Été 2026 :</strong> mises à jour ci-dessous.
+        </div>
+
+        <div class="availability" style="margin-top:10px">
+          <div class="slot">
+            <h4>Séjour 6–10 ans • <small>06/07/2026 → 17/07/2026</small></h4>
+            <div class="row">
+              <span class="badge"><span>Places restantes</span> <strong>n/a</strong></span>
+            </div>
+          </div>
+
+          <div class="slot">
+            <h4>Séjour tout âge • <small>20/07/2026 → 31/07/2026</small></h4>
+            <div class="row">
+              <span class="badge"><span>Places restantes</span> <strong>n/a</strong></span>
+            </div>
+          </div>
+
+          <p style="margin:0;color:var(--dim);font-size:13px">
+            Mise à jour manuelle — contactez-nous pour l’état en temps réel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Séjour Neige -->
+<section class="container" id="sejour-neige">
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="card-inner">
+        <h2>Séjour à la Neige — <span class="pill warn">15 → 21 février 2026</span></h2>
+        <p class="lead">
+          Une semaine de glisse et de plein air : ski ou surf, jeux,
+          veillées et souvenirs inoubliables.
+        </p>
+
+        <h3 style="margin:10px 0 8px">Location Équipement</h3>
+        <ul class="list">
+          <li>🎿 Ski & chaussures</li>
+          <li>🏂 Surf & chaussures</li>
+          <li>🪖 Casque <strong>(obligatoire)</strong></li>
+        </ul>
+
+        <div class="cta-row" style="margin-top:14px">
+          <a class="btn" href="#docs">S’inscrire</a>
+          <a class="btn secondary" href="#contact">Poser une question</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/J2XHLzKAv7I"
+          title="Vidéo Séjour Neige"
+          allowfullscreen
+          loading="lazy"></iframe>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+          <span class="pill ok">Sécurité encadrée</span>
+          <span class="pill">Ateliers & randonnées</span>
+          <span class="pill">Veillées tous les soirs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Séjours Été -->
+<section class="container" id="sejours">
+  <h2>Séjours Été 2026</h2>
+
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="card-inner">
+        <h3>Séjour 6–10 ans</h3>
+        <p class="lead">
+          Du <strong>6 juillet</strong> au <strong>17 juillet 2026</strong>
+        </p>
+        <p class="lead">Adapté aux jeunes de 6 à 10 ans</p>
+
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="#docs">Fiche d’inscription</a>
+          <span class="pill warn">Filles: ..</span>
+          <span class="pill danger">Garçons: ..</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <h3>Séjour tout âge</h3>
+        <p class="lead">
+          Du <strong>20 juillet</strong> au <strong>31 juillet 2026</strong>
+        </p>
+        <p class="lead">Adapté à tout âge</p>
+
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="#docs">Fiche d’inscription</a>
+          <span class="pill warn">Filles: ..</span>
+          <span class="pill">Garçons: ..</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Activités -->
+<section class="container" id="activites">
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="card-inner">
+        <h2>Activités proposées</h2>
+        <ul class="list">
+          <li>🚣 Baby-raft ou Raft</li>
+          <li>🌳 Parcours accro-branche</li>
+          <li>🏊 Piscine</li>
+          <li>🎲 Grands jeux animés</li>
+          <li>✨ Veillées tous les soirs</li>
+          <li>🥪 Pique-niques</li>
+          <li>🛠️ Ateliers</li>
+          <li>🥾 Randonnées</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <h2>Règlement & Paiement</h2>
+        <ul class="list">
+          <li>💶 <strong>Plusieurs mensualités</strong> possibles</li>
+          <li>🏦 <strong>Chèques vacances C.C.S.S</strong> acceptés</li>
+          <li>🧺 Afin d’alléger les valises, <strong>le linge est lavé régulièrement</strong></li>
+        </ul>
+        <p style="margin-top:10px;color:var(--dim);font-size:14px">
+          Pour toute question, contactez-nous (voir plus bas).
+        </p>
+      </div>
+    </div>
+
+    <div class="card" id="videos">
+      <div class="card-inner">
+        <h2>Vidéos</h2>
+        <p class="lead">Retrouvez nos meilleurs moments en vidéo.</p>
+
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/J2XHLzKAv7I"
+          title="Vidéo présentation"
+          allowfullscreen
+          loading="lazy"></iframe>
+
+        <iframe
+          class="video"
+          src="https://www.youtube.com/embed/oL85JQijyUM"
+          title="Vidéo Colo Été"
+          allowfullscreen
+          loading="lazy"
+          style="margin-top:12px"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Documents -->
+<section class="container" id="docs">
+  <div class="card">
+    <div class="card-inner">
+      <h2>Documents à télécharger</h2>
+      <p class="lead">
+        Merci de télécharger aussi la <strong>fiche d’inscription annuelle</strong>
+        pour toute inscription au séjour (pour les non-membres).
+      </p>
+
+      <div class="grid cols-2 doc-list" style="margin-top:10px">
+        <a href="https://raw.githubusercontent.com/bifalixxxx/cvav-primeeee/main/F.I%20JEUNESSE-1.pdf" download>
+          <span>📄 Fiche d’inscription <strong>Jeunesse</strong></span>
+          <small>Télécharger</small>
+        </a>
+
+        <a href="https://raw.githubusercontent.com/bifalixxxx/cvav-primeeee/main/F.I%20adulte.xlsx.pdf" download>
+          <span>📄 Fiche d’inscription <strong>Adulte</strong></span>
+          <small>Télécharger</small>
+        </a>
+
+        <a href="https://raw.githubusercontent.com/bifalix24/T-inqui-te-/main/Lettre%20ski%201-2.pdf" download>
+          <span>🏔️ <strong>Inscription Ski</strong></span>
+          <small>Télécharger</small>
+        </a>
+
+        <a href="https://raw.githubusercontent.com/bifalixxxx/cvav-primeeee/main/fiches%20sanitaires.pdf" download>
+          <span>🧾 <strong>Fiches sanitaires</strong></span>
+          <small>Télécharger</small>
+        </a>
+
+        <a href="https://raw.githubusercontent.com/bifalixxxx/cvav-primeeee/main/trousseau%20ski.pdf" download>
+          <span>🧳 <strong>Trousseau Ski</strong></span>
+          <small>Télécharger</small>
+        </a>
+      </div>
+
+      <div class="banner" style="margin-top:12px">
+        La fiche sanitaire a une validité limitée — merci de nous la transmettre
+        <strong>qu’au mois de juin</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Association / Actions -->
+<section class="container" id="actions">
+  <div class="card">
+    <div class="card-inner">
+      <h2>Qui sommes-nous ?</h2>
+      <p class="lead">
+        A.C.E – Action Catholique des Enfants • Coeurs Vaillants Âmes Vaillantes.
+      </p>
+      <p>
+        Nous accompagnons les enfants et les jeunes dans des temps forts
+        de vie collective, de jeux, d’entraide et de croissance spirituelle
+        et humaine.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Devenir membre -->
+<section class="container" id="membres">
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="card-inner">
+        <h2>Devenir membre</h2>
+        <p class="lead">
+          Rejoignez la dynamique A.C.E pour être informé des activités
+          et bénéficier des tarifs membres.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#docs">Remplir l’inscription annuelle</a>
+          <a class="btn secondary" href="#contact">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <h3>Navigation rapide</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <a class="tag" href="#sejour-neige">Séjour Neige</a>
+          <a class="tag" href="#sejours">Séjours Été</a>
+          <a class="tag" href="#activites">Activités</a>
+          <a class="tag" href="#docs">Documents</a>
+          <a class="tag" href="#videos">Vidéos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="container" id="contact">
+  <div class="card">
+    <div class="card-inner">
+      <h2>Nous contacter</h2>
+      <p>
+        Une question sur les inscriptions, les documents ou les disponibilités ?
+        Écrivez-nous ou appelez-nous.
+      </p>
+      <ul class="list">
+        <li>
+          📍 Association Coeurs Vaillants Ames Vaillantes (A.C.E)<br>
+          28 Bd Rainier III, 98000 Monaco
+        </li>
+        <li>📞 Tel : (00.377) 93.25.32.16 / 06.78.63.79.96</li>
+        <li>✉️ Mail : <a href="mailto:cvav@monaco.mc">cvav@monaco.mc</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© <span id="y"></span> A.C.E — Tous droits réservés.</div>
+    <div>
+      Thème moderne. Besoin d’aide ?
+      Appuyez sur <span class="kbd">/</span> pour rechercher (à venir).
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const hamb = document.getElementById('hamb');
+  const menu = document.getElementById('menu');
+  hamb.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>
+
+<!-- === ADMIN INVISIBLE / IP ONLY / ÉDITION TOTALE === -->
+<style>
+  /* aucun impact visuel hors admin */
+  .mbr-editing [contenteditable="true"]{
+    outline:2px dashed rgba(0,0,0,.25);
+    outline-offset:2px;
+  }
+</style>
+
+<script>
+/* =========================
+   ADMIN TOTAL – IONOS SAFE
+   ========================= */
+
+/* 🔴 METS TON IP PUBLIQUE ICI */
+const ADMIN_IP = "87.254.228.168";
+
+/* Tout ce qui est éditable (texte uniquement) */
+
+const EDIT_SELECTOR = [
+  "h1,h2,h3,h4,h5,h6",
+  "p,li,span,small,strong,em,b,i,u",
+  "a:not([href^='#'])",
+  "button,.btn,.tag,.pill,.badge",
+  "div"
+].join(",");
+
+const STORAGE_KEY = "ACE_ADMIN_CONTENT_V1";
+let editing = false;
+
+/* Détection IP réelle */
+fetch("https://api.ipify.org?format=json")
+  .then(r => r.json())
+  .then(({ ip }) => {
+    if (ip !== ADMIN_IP) return; // public : rien
+
+    // === ADMIN ACTIF ===
+    restore();
+
+    document.addEventListener("keydown", (e) => {
+      // CTRL + ALT + E : activer/désactiver édition
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "e") {
+        e.preventDefault();
+        editing = !editing;
+        document.documentElement.classList.toggle("mbr-editing", editing);
+        document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
+          if (el.closest("script,style")) return;
+          el.contentEditable = editing ? "true" : "false";
+          el.spellcheck = false;
+        });
+      }
+
+      // CTRL + ALT + S : sauvegarder
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+        save();
+        alert("Admin : contenu sauvegardé");
+      }
+
+      // CTRL + ALT + R : reset local
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "r") {
+        e.preventDefault();
+        if (confirm("Admin : annuler toutes les modifications locales ?")) {
+          localStorage.removeItem(STORAGE_KEY);
+          location.reload();
+        }
+      }
+    });
+  })
+  .catch(() => {
+    /* en cas d’échec IP, admin désactivé */
+  });
+
+/* Sauvegarde locale */
+function save(){
+  const data = [];
+  document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
+    if (el.closest("script,style")) return;
+    data.push(el.innerHTML);
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+/* Restauration locale */
+function restore(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+  try{
+    const data = JSON.parse(raw);
+    let i = 0;
+    document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
+      if (el.closest("script,style")) return;
+      if (data[i] !== undefined) el.innerHTML = data[i];
+      i++;
+    });
+  }catch(e){}
+}
+</script>
+
+</body>
+</html>
