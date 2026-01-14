@@ -512,11 +512,22 @@ fetch("/", { method: "HEAD" })
 
 /* Raccourcis clavier ADMIN */
 document.addEventListener("keydown", (e) => {
-  if (!IS_ADMIN) return;
 
-  // CTRL + ALT + E → édition
+  // Tentative d'accès admin
   if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "e") {
     e.preventDefault();
+
+    // ❌ Pas admin → message d'erreur
+    if (!IS_ADMIN) {
+      alert(
+        "⛔ Accès refusé\n\n" +
+        "Le mode édition est réservé à l’administrateur.\n" +
+        "Votre adresse IP n’est pas autorisée."
+      );
+      return;
+    }
+
+    // ✅ Admin OK → édition
     editing = !editing;
     document.documentElement.classList.toggle("mbr-editing", editing);
     document.querySelectorAll(EDIT_SELECTOR).forEach(el => {
@@ -526,15 +537,17 @@ document.addEventListener("keydown", (e) => {
     });
   }
 
-  // CTRL + ALT + S → sauvegarde
+  // Sauvegarde
   if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "s") {
+    if (!IS_ADMIN) return;
     e.preventDefault();
     save();
     alert("Contenu sauvegardé");
   }
 
-  // CTRL + ALT + R → reset
+  // Reset
   if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "r") {
+    if (!IS_ADMIN) return;
     e.preventDefault();
     if (confirm("Annuler toutes les modifications locales ?")) {
       localStorage.removeItem(STORAGE_KEY);
